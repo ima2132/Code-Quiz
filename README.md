@@ -1,2 +1,2 @@
 # Code Quiz
-Web APIs Challenge: Code Quiz
+A {Function} of Your Time: Can You Beat the Clock?
