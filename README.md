@@ -47,7 +47,7 @@ THEN I can save my initials and score
 N/A
 
 ## Usage
-To use this application, users can click to start the quiz. Users have an allotted time of 90 seconds to answer each question. If they get a question wrong, time will be deducted from the clock. Upon finishing the quiz, users can enter their initials and save their score. Users will also be able to view which questions they got correct/wrong. 
+To use this application, users can click to start the quiz. Users have an allotted time of 60 seconds to answer each question. If they get a question wrong, time will be deducted from the clock. Upon finishing the quiz, users can enter their initials and save their score. Users will also be able to view which questions they got correct/wrong. 
 
 ## License
 Please refer to the LICENSE listed in the repo. 
