@@ -7,9 +7,25 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+
+<!------------------------header section --------------------------------->
     <header>
         <h1>A {Function} of Your Time: Can You Beat the Clock?</h1>
         <button id="start-btn">Start Quiz</button>
     </header>
-
+<!----------------------main question/button/timer section---------------------------------------->
+<main>
+    <div id="question-container" class="hide">
+        <div id="question">Question goes here</div>
+        <div id="choice-buttons" class="btn-grid">
+            <button class="btn">Choice 1</button>
+            <button class="btn">Choice 2</button>
+            <button class="btn">Choice 3</button>
+            <button class="btn">Choice 4</button>
+        </div>
+    </div>
+    <div id="feedback" class="hide"></div>
+    <div id="timer">Time Left: <span id="time">0</span></div>
+    </main>
+<!-------------------------------------------------------------------------->
 
