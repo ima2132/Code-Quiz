@@ -27,3 +27,29 @@ function startQuiz() {
     }
   }, 1000);
 }
+
+// added function to show question and answer choices
+function showQuestion() {
+    resetState();
+    questionElement.textContent = questions[currentQuestion].question;
+    questions[currentQuestion].choices.forEach(function(choice, i) {
+      var button = document.createElement("button");
+      button.classList.add("btn");
+      button.textContent = choice;
+      button.addEventListener("click", function() {
+        if (choice === questions[currentQuestion].answer) {
+          score++;
+        } else {
+          timeLeft -= 10;
+        }
+        currentQuestion++;
+        if (currentQuestion === questions.length) {
+          endQuiz();
+        } else {
+          showQuestion();
+        }
+      });
+      answerButtons.appendChild(button);
+    });
+  }
+  
