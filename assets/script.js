@@ -52,4 +52,11 @@ function showQuestion() {
       answerButtons.appendChild(button);
     });
   }
+
+  // added function to reset answer choices
+function resetState() {
+    while (answerButtons.firstChild) {
+      answerButtons.removeChild(answerButtons.firstChild);
+    }
+  }
   
