@@ -59,4 +59,14 @@ function resetState() {
       answerButtons.removeChild(answerButtons.firstChild);
     }
   }
+
+  // added function to end quiz
+function endQuiz() {
+    questionContainer.classList.add("hide");
+    var initials = prompt("Enter your initials:");
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    highScores.push({ initials: initials, score: score });
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.href = "highscores.html";
+  }
   
