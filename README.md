@@ -10,7 +10,7 @@
 - [Deployed URL](#deployed-url)
 
 ## Description 
-This project marks the implementation of JavaScript and web APIS into a timed quiz. The main objective is to create an application that presents the user with coding questions and are penalized through time deduction if they answer incorrectly. At the end of the quiz, the user can enter their initials, view their score, and save their record. 
+This project marks the implementation of JavaScript and web APIS into a timed quiz. The main objective is to create an application that presents the user with coding questions and can be penalized through time deduction if they answer incorrectly. At the end of the quiz, the user can enter their initials, view their score, and save their record. 
 
 This project is also a great way to test one's coding knowledge and/or in preparation of a technical round of a job interview. 
 
