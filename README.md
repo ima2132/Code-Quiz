@@ -10,6 +10,9 @@
 - [Deployed URL](#deployed-url)
 
 ## Description 
+This project marks the implementation of JavaScript and web APIS into a timed quiz. The main objective is to create an application that presents the user with coding questions and are penalized through time deduction if they answer incorrectly. At the end of the quiz, the user can enter their initials, view their score, and save their record. 
+
+This project is also a great way to test one's coding knowledge and/or in preparation of a technical round of a job interview. 
 
 ## User Story
 AS A coding boot camp student
@@ -44,6 +47,7 @@ THEN I can save my initials and score
 N/A
 
 ## Usage
+To use this application, users can click to start the quiz. Users have an allotted time of 90 seconds to answer each question. If they get a question wrong, time will be deducted from the clock. Upon finishing the quiz, users can enter their initials and save their score. Users will also be able to view which questions they got correct/wrong. 
 
 ## License
 Please refer to the LICENSE listed in the repo. 
