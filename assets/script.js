@@ -70,3 +70,66 @@ function endQuiz() {
     window.location.href = "highscores.html";
   }
   
+
+  // questions and answers section (10 questions)
+  var questions = [
+    {
+      question: "What does the acronym DOM stand for in web development?",
+      choices: ["Data Object Model", "Development Object Method", "Document Object Model", "Display Object Management"],
+      answer: "Document Object Model"
+    },
+
+    {
+      question: "What keyword is used to declare a variable in JavaScript?",
+      choices: ["var", "const", "let", "All of the above"],
+      answer: "All of the above"
+    },
+
+    {
+      question: "Which of the following loops executes at lease once?",
+      choices: ["for loop", "if statement", "do...while loop", "while loop"],
+      answer: "do...while loop"
+    }, 
+
+    {
+      question: "Which operator is used for strict equality comparison in JavaScript?",
+      choices: ["!=", "===", "!==", "=="],
+      answer: "==="
+    },
+
+    {
+      question: "Which of the following is NOT a primitive data type in JavaScript?",
+      choices: ["Object", "Boolean", "String", "Number"], 
+      answer: "Object"
+    }, 
+
+    {
+      question: "What is the purpose of a function in JavaScript?",
+      choices: ["To create variables", "To create if-else statements", "To create loops", "To use reusable blocks of code"],
+      answer: "To use reusable blocks of code"
+    },
+
+    {
+      question: "Which of the following is NOT a valid JavaScript variable name?", 
+      choices: ["my_name", "_name", "310name", "$name"],
+      answer: "310name"
+    }, 
+
+    {
+        question: "What is the output of the following code:\n\nvar myArray = ['mango', 'dragon fruit', 'strawberry'];\nconsole.log(myArray[1]);",
+        choices: ["dragon fruit", "strawberry", "undefined", "mango"],
+        answer: "dragon fruit"
+      },
+
+      {
+        question: "What is the difference between == and === in JavaScript?", 
+        choices: ["=== is not a valid operator in JavaScript", "There is no difference", "== compares value and type, while === compares only value", "== compares only value, while === compares value and type"],
+        answer: "== compares only value, while === compares value and type"
+      }, 
+
+      {
+        question: "What is the output of the following code: \n\nvar a = 20; \nvar b = '8'; \nconsole.log(a + b);",
+        choices: ["208", "28", "NaN", "Error"],
+        answer: "208"
+      } 
+  ]
