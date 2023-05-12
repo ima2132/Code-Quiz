@@ -29,7 +29,11 @@ function startQuiz() {
 }
 
 // added function to show question and answer choices
-function showQuestion() {
+
+function showQuestion(question) {
+  console.log(questionContainer); 
+  questionContainer.innerHTML = question.question;
+
     resetState();
     questionElement.textContent = questions[currentQuestion].question;
     questions[currentQuestion].choices.forEach(function(choice, i) {
