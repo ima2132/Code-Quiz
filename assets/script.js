@@ -95,39 +95,31 @@ function startQuiz() {
 // added function to show question and answer choices
 
 function showQuestion(question) {
-  // console.log(questionContainer);
-  // questionContainer.innerHTML = question.question;
   console.log(questions);
-    
-  // resetState();
-    questionElement.textContent = questions[currentQuestion].question;
-    questions[currentQuestion].choices.forEach(function(choice, i) {
-      var button = document.createElement("button");
-      button.classList.add("btn");
-      button.textContent = choice;
-      button.addEventListener("click", function() {
-        if (choice === questions[currentQuestion].answer) {
-          score++;
-        } else {
-          timeLeft -= 10;
-        }
-        currentQuestion++;
-        if (currentQuestion === questions.length) {
-          endQuiz();
-        } else {
-          showQuestion();
-        }
-      });
-      answerButtons.appendChild(button);
-    });
-  }
 
-  // added function to reset answer choices
-function resetState() {
-    while (answerButtons.firstChild) {
-      answerButtons.removeChild(answerButtons.firstChild);
-    }
-  }
+  resetState();
+  questionElement.textContent = questions[currentQuestion].question;
+  questions[currentQuestion].choices.forEach(function (choice, i) {
+    var button = document.createElement("button");
+    button.classList.add("btn");
+    button.textContent = choice;
+    button.addEventListener("click", function () {
+      if (choice === questions[currentQuestion].answer) {
+        score++;
+      } else {
+        timeLeft -= 10;
+      }
+      currentQuestion++;
+      if (currentQuestion === questions.length) {
+        endQuiz();
+      } else {
+        showQuestion();
+      }
+    });
+    answerButtons.appendChild(button);
+  });
+  var answerButtons = document.getElementById("answer-buttons");
+}
 
   // added function to end quiz
 function endQuiz() {

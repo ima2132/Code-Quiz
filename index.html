@@ -3,32 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A {Function} of Your Time: Can You Beat the Clock?</title>
+    <title>A {Function} of Your Time: Can You Beat The Clock?</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 
 <!------------------------header section --------------------------------->
     <header>
-        <h1>A {Function} of Your Time: Can You Beat the Clock?</h1>
+        <h1>A {Function} of Your Time: Can You Beat The Clock?</h1>
         <button id="start-btn">Start Quiz</button>
+        <button id="next-btn" class="hide">Next</button>
     </header>
-<!----------------------main question/button/timer section---------------------------------------->
+
+ <!----------------------main prompt section---------------------------------------->
 <main>
-    <div id="question-container" class="hide">
-        <div id="question"></div>
-        <div id="choice-buttons" class="btn-grid">
-            <button class="btn">Choice 1</button>
-            <button class="btn">Choice 2</button>
-            <button class="btn">Choice 3</button>
-            <button class="btn">Choice 4</button>
+    <section>
+        <div class="container">
+            <p id="prompt"> How well do you really know JavaScript? Test your knowledge in 60 seconds to see how many you get correct. Any wrong answer will result in a deduction of 10 seconds on the timer. Can you beat the clock?</p>
         </div>
-    </div>
-    <div id="feedback" class="hide"></div>
+    </section>
+
+    <section>
+        <div id="score" class="hide">
+            <h2>Time's Up!</h2>
+            <p> Please enter your initials to view your score.</p>
+            <input type="text" id="initial" name="name">
+            <button id="show-score">Show Score</button>
+            <div id="final" class="hide">
+                <h2 id="scores"></h2>
+                <button id="restart">Restart Quiz</button>
+            </div>
+        </div>
+
+<!--------------------questions ------------------------->
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Choice 1</button>
+                <button class="btn">Choice 2</button>
+                <button class="btn">Choice 3</button>
+                <button class="btn">Choice 4</button>
+            </div>
+            <p id="result"></p>
+        </div>
+    </section>
+</main>
+
+<!--------------------------------timer--------------------------------->
     <div id="timer">Time Left: <span id="time">0</span></div>
-    </main>
-<!-------------------------------------------------------------------------->
+</body>
 
 <script src="./assets/script.js"></script>
-</body>
-</html> 
+</html>
