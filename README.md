@@ -16,11 +16,7 @@ to develop an application that offers users a series of coding questions. If use
 This project is also a great way to test one's coding knowledge and/or in preparation of a technical round of a job interview. 
 
 ## User Story
-AS A coding boot camp student
-
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-
-SO THAT I can gauge my progress compared to my peers
+As a coding boot camp student, I want to take a timed quiz on JavaScript fundamentals that stores high scores so that I can gauge my progress compared to my peers. 
 
 ## Acceptance Criteria
 * GIVEN I am taking a code quiz
@@ -39,7 +35,9 @@ SO THAT I can gauge my progress compared to my peers
 N/A
 
 ## Usage
-To utilize this application, simply click on the deployed link. Users may begin the quiz by clicking on the designated start button. Each question must be answered within a time limit of 60 seconds. Should a user provide an incorrect response, time will be subtracted from the remaining countdown. Upon completing the quiz, users will be prompted to enter their initials and store their final score. They will have access to view the questions they answered correctly and incorrectly.
+To utilize this application, simply click on the deployed link. Users may begin the quiz by clicking on the designated start button. Each question must be answered within a time limit of 60 seconds. Should a user provide an incorrect response, time will be subtracted from the remaining countdown. 
+
+Upon completing the quiz, users will be prompted to enter their initials and store their final score. They will have access to view the questions they answered correctly and incorrectly.
 
 ## License
 Please refer to the LICENSE listed in the repo. 
