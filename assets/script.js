@@ -20,7 +20,7 @@ var currentQuestion = 0;
 var score = 0;
 var timeLeft = 90;
 
-// questions and answers section (10 questions)
+// questions and answers section (8 questions)
   var questions = [
     {
       question: "What does the acronym DOM stand for in web development?",

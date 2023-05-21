@@ -12,6 +12,10 @@ body {
   line-height: 1.6;
 }
 
+header {
+  text-align: center;
+}
+
 h1 {
 font-family: 'Catamaran', sans-serif;
     width: 100%;
