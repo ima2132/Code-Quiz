@@ -134,6 +134,12 @@ function showQuestion() {
     scoreContainer.classList.remove("hide");
   }
   
+
+function displayCurrentScore(initials, score) {
+  var currentScoreElement = document.getElementById("current-score");
+  currentScoreElement.textContent = initials + " - " + score;
+}
+  
 // captures the user's initials and adds initials/score to the highScores array
 function showScore() {
   var initials = initialsInput.value.trim();
@@ -143,37 +149,30 @@ function showScore() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
     displayCurrentScore(initials, score);
     displayScores();
+    showScoreButton.classList.add("hide");  // hides the "Show Score" button after showing the score
+    initialsInput.classList.add("hide");    // hides the input field after showing the score
+    document.getElementById("times-up").classList.add("hide"); // hides "Time's Up!"
+    document.getElementById("enter-initials-prompt").classList.add("hide"); // hides "Please enter your initials to view your score."
   }
 }
 
-function displayCurrentScore(initials, score) {
-  var currentScoreElement = document.getElementById("current-score");
-  currentScoreElement.textContent = initials + " - " + score;
-}
-  
 // displays scores by retrieving them from the local storage
-  function displayScores() {
-    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-    scoresElement.innerHTML = "";
-    highScores.forEach(function (entry) {
-      var scoreEntry = document.createElement("p");
-      scoreEntry.textContent = entry.initials + " - " + entry.score;
-      scoresElement.appendChild(scoreEntry);
-    });
-    finalContainer.classList.remove("hide");
-    scoreContainer.classList.add("hide");
-  }
+function displayScores() {
+  var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+  highScores.sort((a, b) => b.score - a.score);  // sorts scores from highest to lowest
+  scoresElement.innerHTML = "";
+  highScores.forEach(function (entry) {
+    var scoreEntry = document.createElement("p");
+    scoreEntry.textContent = entry.initials + " - " + entry.score;
+    scoresElement.appendChild(scoreEntry);
+  });
+  finalContainer.classList.remove("hide");  // shows the "Restart Quiz" button after showing the score
+}
 
-// function to restart quiz 
-  function restartQuiz() {
-    timeLeft = 90;
-    score = 0;
-    currentQuestion = 0;
-    startButton.classList.remove("hide");
-    promptElement.classList.remove("hide");
-    finalContainer.classList.add("hide");
-    startQuiz();  
-  }
+// simplified function to restart quiz 
+function restartQuiz() {
+  location.reload(); // reloads the page to start the quiz from the beginning
+}
 
 
 
