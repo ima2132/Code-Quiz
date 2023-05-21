@@ -20,9 +20,13 @@ var currentQuestion = 0;
 var score = 0;
 var timeLeft = 90;
 
+// added result element
+var resultElement = document.getElementById("result");
+questionContainer.appendChild(resultElement);
+
 // questions and answers section (8 questions)
-  var questions = [
-    {
+var questions = [
+{
       question: "What does the acronym DOM stand for in web development?",
       choices: ["Data Object Model", "Development Object Method", "Document Object Model", "Display Object Management"],
       answer: "Document Object Model"
@@ -69,30 +73,31 @@ var timeLeft = 90;
         choices: ["208", "28", "NaN", "Error"],
         answer: "208"
     }, 
-  ]
+]
 
-  // added event listener for start button, show score, and restart quiz 
-  startButton.addEventListener("click", startQuiz);
-  showScoreButton.addEventListener("click", showScore);
-  restartButton.addEventListener("click", restartQuiz);
-  
-  function startQuiz() {
-    startButton.classList.add("hide");
-    promptElement.classList.add("hide");
-    questionContainer.classList.remove("hide");
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-    showQuestion();
-    timerInterval = setInterval(function () {
-      timeLeft--;
-      timeElement.textContent = timeLeft;
-      if (timeLeft <= 0 || currentQuestion === questions.length) {
-        clearInterval(timerInterval);
-        endQuiz();
-      }
-    }, 1000);
-  }
+// added event listener for start button, show score, and restart quiz 
+startButton.addEventListener("click", startQuiz);
+showScoreButton.addEventListener("click", showScore);
+restartButton.addEventListener("click", restartQuiz);
 
- // function to show question 
+
+function startQuiz() {
+  startButton.classList.add("hide");
+  promptElement.classList.add("hide");
+  questionContainer.classList.remove("hide");
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  showQuestion();
+  timerInterval = setInterval(function () {
+    timeLeft--;
+    timeElement.textContent = timeLeft;
+    if (timeLeft <= 0 || currentQuestion === questions.length) {
+      clearInterval(timerInterval);
+      endQuiz();
+    }
+  }, 1000);
+}
+
+// function to show question 
 function showQuestion() {
   resetState();
   var currentQuizQuestion = shuffledQuestions[currentQuestion];
@@ -122,25 +127,27 @@ function showQuestion() {
   });
 }
 
-  function resetState() {
-    while (answerButtons.firstChild) {
-      answerButtons.removeChild(answerButtons.firstChild);
-    }
+function resetState() {
+  while (answerButtons.firstChild) {
+    answerButtons.removeChild(answerButtons.firstChild);
   }
+}
   
-  // ends quiz 
-  function endQuiz() {
-    questionContainer.classList.add("hide");
-    scoreContainer.classList.remove("hide");
-  }
-  
+// ends quiz 
+function endQuiz() {
+  questionContainer.classList.add("hide");
+  scoreContainer.classList.remove("hide");
+  questionElement.classList.add("hide");
+  answerButtons.classList.add("hide");
+  resultElement.classList.add("hide");
+}
+ 
 
 function displayCurrentScore(initials, score) {
   var currentScoreElement = document.getElementById("current-score");
   currentScoreElement.textContent = initials + " - " + score;
 }
-  
-// captures the user's initials and adds initials/score to the highScores array
+
 function showScore() {
   var initials = initialsInput.value.trim();
   if (initials !== "") {
@@ -156,10 +163,11 @@ function showScore() {
   }
 }
 
+
 // displays scores by retrieving them from the local storage
 function displayScores() {
   var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-  highScores.sort((a, b) => b.score - a.score);  // sorts scores from highest to lowest
+  highScores.sort((a, b) => b.score - a.score);  // Sort scores from highest to lowest
   scoresElement.innerHTML = "";
   highScores.forEach(function (entry) {
     var scoreEntry = document.createElement("p");
@@ -169,7 +177,7 @@ function displayScores() {
   finalContainer.classList.remove("hide");  // shows the "Restart Quiz" button after showing the score
 }
 
-// simplified function to restart quiz 
+
 function restartQuiz() {
   location.reload(); // reloads the page to start the quiz from the beginning
 }
