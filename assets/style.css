@@ -74,7 +74,7 @@ font-family: 'Catamaran', sans-serif;
 
 #start-btn,
 #show-score,
-#restart {
+#restart, #clear-scores {
    padding: 20px 40px;
     border: none;
     border-radius: 20px;

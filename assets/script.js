@@ -174,6 +174,11 @@ function restartQuiz() {
   location.reload(); // reloads the page to start the quiz from the beginning
 }
 
+// info to clear scores 
+var clearScoresButton = document.getElementById("clear-scores");
+clearScoresButton.addEventListener("click", clearScores);
 
-
-
+function clearScores() {
+    localStorage.removeItem("highScores");  // clears the scores from local storage
+    scoresElement.innerHTML = "";  // clears the scores from the page
+}
