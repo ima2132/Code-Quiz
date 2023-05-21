@@ -1,44 +1,107 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-  }
-  
-  header {
-    text-align: center;
-    background-color:#d9a473;
-    color: #eef2f4;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  background-color: #f8f1f1;
+  color: #f2bac9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+}
+
+h1 {
+font-family: 'Catamaran', sans-serif;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#intro,
+#score,
+#question-container {
+  text-align: center;
+  padding: 20px;
+}
+
+#prompt {
+  font-size: 20px;
+  color: #444;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #87a878;
+  color: #eef2f4;
+  padding: 5px 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #9fc490;
+  color: #fff;
   }
-  
-  .btn {
-    background-color:#a5d6ed;;
-    color: #eef2f4;
+
+#start-btn,
+#show-score,
+#restart {
+   padding: 20px 40px;
     border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #fff;
     cursor: pointer;
-    justify-content: center; 
-    align-items: center; 
-  }
-  
-  
-  .btn:hover {
-    background-color: #a7caf3;
-    color: #fff;
-  }
-  
-  .btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 210px 0;
-    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
     align-items: center;
-    text-align: center;
-  }
+}
+
+#initial {
+  width: 300px;
+  padding: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+
+#timer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #f2bac9;
+  font-weight: bold;
+}
+
   
   
