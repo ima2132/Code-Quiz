@@ -6,6 +6,7 @@
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [License](#license)
 - [Deployed URL](#deployed-url)
 
@@ -35,9 +36,12 @@ As a coding boot camp student, I want to take a timed quiz on JavaScript fundame
 N/A
 
 ## Usage
-To utilize this application, simply click on the deployed link. Users may begin the quiz by clicking on the designated start button. Each question must be answered within a time limit of 60 seconds. Should a user provide an incorrect response, time will be subtracted from the remaining countdown. 
+To utilize this application, simply click on the deployed link. Users may begin the quiz by clicking on the designated start button. Each question must be answered within a time limit of 90 seconds. Should a user provide an incorrect response, time will be subtracted from the remaining countdown. 
 
-Upon completing the quiz, users will be prompted to enter their initials and store their final score. They will have access to view the questions they answered correctly and incorrectly.
+Users will have access to view the questions they answered correctly and incorrectly right after answering the question. Upon completing the quiz, they will be prompted to enter their initials and store their final score.  
+
+## Screenshots
+The following images shows the web application's appearance and functionality:
 
 ## License
 Please refer to the LICENSE listed in the repo. 
