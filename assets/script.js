@@ -12,7 +12,7 @@ var timerInterval;
 // setting initial values 
 var currentQuestion = 0;
 var score = 0;
-var timeLeft = 60;
+var timeLeft = 90;
 
 // questions and answers section (10 questions)
   var questions = [
