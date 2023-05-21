@@ -131,17 +131,23 @@ var timeLeft = 90;
   }
   
 // captures the user's initials and adds initials/score to the highScores array
-  function showScore() {
-    var initials = initialsInput.value.trim();
-    if (initials !== "") {
-      var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-      highScores.push({ initials: initials, score: score });
-      localStorage.setItem("highScores", JSON.stringify(highScores));
-      displayScores();
-    }
+function showScore() {
+  var initials = initialsInput.value.trim();
+  if (initials !== "") {
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    highScores.push({ initials: initials, score: score });
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    displayCurrentScore(initials, score);
+    displayScores();
   }
+}
+
+function displayCurrentScore(initials, score) {
+  var currentScoreElement = document.getElementById("current-score");
+  currentScoreElement.textContent = initials + " - " + score;
+}
   
-  // displays scores by retrieving them from the local storage
+// displays scores by retrieving them from the local storage
   function displayScores() {
     var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     scoresElement.innerHTML = "";
@@ -153,8 +159,8 @@ var timeLeft = 90;
     finalContainer.classList.remove("hide");
     scoreContainer.classList.add("hide");
   }
-  
-  // function to restart quiz 
+
+// function to restart quiz 
   function restartQuiz() {
     timeLeft = 90;
     score = 0;
@@ -162,8 +168,8 @@ var timeLeft = 90;
     startButton.classList.remove("hide");
     promptElement.classList.remove("hide");
     finalContainer.classList.add("hide");
+    startQuiz();  
   }
-  
 
 
 
