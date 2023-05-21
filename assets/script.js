@@ -1,10 +1,16 @@
 // put references to the elements on the page
 var startButton = document.getElementById("start-btn");
-var nextButton = document.getElementById("next-btn");
 var questionContainer = document.getElementById("question-container");
 var questionElement = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
 var timeElement = document.getElementById("time");
+var promptElement = document.getElementById("prompt");
+var scoreContainer = document.getElementById("score");
+var initialsInput = document.getElementById("initial");
+var showScoreButton = document.getElementById("show-score");
+var scoresElement = document.getElementById("scores");
+var finalContainer = document.getElementById("final");
+var restartButton = document.getElementById("restart");
 
 var shuffledQuestions;
 var timerInterval;
@@ -59,78 +65,106 @@ var timeLeft = 90;
     }, 
 
     {
-        question: "What is the output of the following code:\n\nvar myArray = ['mango', 'dragon fruit', 'strawberry'];\nconsole.log(myArray[1]);",
-        choices: ["dragon fruit", "strawberry", "undefined", "mango"],
-        answer: "dragon fruit"
-      },
-
-      {
-        question: "What is the difference between == and === in JavaScript?", 
-        choices: ["=== is not a valid operator in JavaScript", "There is no difference", "== compares value and type, while === compares only value", "== compares only value, while === compares value and type"],
-        answer: "== compares only value, while === compares value and type"
-      }, 
-
-      {
         question: "What is the output of the following code: \n\nvar a = 20; \nvar b = '8'; \nconsole.log(a + b);",
         choices: ["208", "28", "NaN", "Error"],
         answer: "208"
-      } 
+    }, 
   ]
 
-
-// added event listener to the start button
-startButton.addEventListener("click", startQuiz);
-
-// added function to start the quiz
-function startQuiz() {
-  startButton.classList.add("hide");
-  questionContainer.classList.remove("hide");
-  showQuestion();
-  var timerInterval = setInterval(function() {
-    timeLeft--;
-    timeElement.textContent = "Time: " + timeLeft;
-    if (timeLeft === 0 || currentQuestion === questions.length) {
-      clearInterval(timerInterval);
-      endQuiz();
-    }
-  }, 1000);
-}
-
-// added function to show question and answer choices
-
-function showQuestion(question) {
-  console.log(questions);
-
-  resetState();
-  questionElement.textContent = questions[currentQuestion].question;
-  questions[currentQuestion].choices.forEach(function (choice, i) {
-    var button = document.createElement("button");
-    button.classList.add("btn");
-    button.textContent = choice;
-    button.addEventListener("click", function () {
-      if (choice === questions[currentQuestion].answer) {
-        score++;
-      } else {
-        timeLeft -= 10;
-      }
-      currentQuestion++;
-      if (currentQuestion === questions.length) {
+  // added event listener for start button, show score, and restart quiz 
+  startButton.addEventListener("click", startQuiz);
+  showScoreButton.addEventListener("click", showScore);
+  restartButton.addEventListener("click", restartQuiz);
+  
+  function startQuiz() {
+    startButton.classList.add("hide");
+    promptElement.classList.add("hide");
+    questionContainer.classList.remove("hide");
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    showQuestion();
+    timerInterval = setInterval(function () {
+      timeLeft--;
+      timeElement.textContent = timeLeft;
+      if (timeLeft <= 0 || currentQuestion === questions.length) {
+        clearInterval(timerInterval);
         endQuiz();
-      } else {
-        showQuestion();
       }
-    });
-    answerButtons.appendChild(button);
-  });
-  var answerButtons = document.getElementById("answer-buttons");
-}
-
-  // added function to end quiz
-function endQuiz() {
-    questionContainer.classList.add("hide");
-    var initials = prompt("Enter your initials:");
-    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
-    highScores.push({ initials: initials, score: score });
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "highscores.html";
+    }, 1000);
   }
+
+  // function to show question 
+  function showQuestion() {
+    resetState();
+    var currentQuizQuestion = shuffledQuestions[currentQuestion];
+    questionElement.textContent = currentQuizQuestion.question;
+    currentQuizQuestion.choices.forEach(function (choice) {
+      var button = document.createElement("button");
+      button.classList.add("btn");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        if (choice === currentQuizQuestion.answer) {
+          score++;
+        } else {
+          timeLeft -= 10;
+        }
+        currentQuestion++;
+        if (currentQuestion === questions.length) {
+          endQuiz();
+        } else {
+          showQuestion();
+        }
+      });
+      answerButtons.appendChild(button);
+    });
+  }
+
+  function resetState() {
+    while (answerButtons.firstChild) {
+      answerButtons.removeChild(answerButtons.firstChild);
+    }
+  }
+  
+  // ends quiz 
+  function endQuiz() {
+    questionContainer.classList.add("hide");
+    scoreContainer.classList.remove("hide");
+  }
+  
+// captures the user's initials and adds initials/score to the highScores array
+  function showScore() {
+    var initials = initialsInput.value.trim();
+    if (initials !== "") {
+      var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+      highScores.push({ initials: initials, score: score });
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+      displayScores();
+    }
+  }
+  
+  // displays scores by retrieving them from the local storage
+  function displayScores() {
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    scoresElement.innerHTML = "";
+    highScores.forEach(function (entry) {
+      var scoreEntry = document.createElement("p");
+      scoreEntry.textContent = entry.initials + " - " + entry.score;
+      scoresElement.appendChild(scoreEntry);
+    });
+    finalContainer.classList.remove("hide");
+    scoreContainer.classList.add("hide");
+  }
+  
+  // function to restart quiz 
+  function restartQuiz() {
+    timeLeft = 90;
+    score = 0;
+    currentQuestion = 0;
+    startButton.classList.remove("hide");
+    promptElement.classList.remove("hide");
+    finalContainer.classList.add("hide");
+  }
+  
+
+
+
+
