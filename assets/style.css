@@ -42,7 +42,7 @@ font-family: 'Catamaran', sans-serif;
 
 #prompt {
   font-size: 20px;
-  color: #444;
+  color: #737373;
 }
 
 .hide {
@@ -79,6 +79,7 @@ font-family: 'Catamaran', sans-serif;
     border: none;
     border-radius: 20px;
     background-color: #fff;
+    color:#737373;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
