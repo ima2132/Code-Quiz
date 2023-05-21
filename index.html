@@ -23,12 +23,13 @@
 
     <section>
       <div id="score" class="hide">
-        <h2>Time's Up!</h2>
-        <p>Please enter your initials to view your score.</p>
+        <h2 id="times-up">Time's Up!</h2>
+        <p id="enter-initials-prompt">Please enter your initials to view your score.</p>
         <input type="text" id="initial" name="name" placeholder="Enter your initials">
         <button id="show-score">Show Score</button>
         <div id="final" class="hide">
           <h2>Your Scores:</h2>
+          <p id="current-score"></p>
           <p id="scores"></p>
           <button id="restart">Restart Quiz</button>
         </div>
@@ -44,8 +45,6 @@
 
   <div id="timer">Time Left: <span id="time">90</span></div>
 
-  <p id="current-score"></p>
-
   <script src="./assets/script.js"></script>
 </body>
-
+</html>

@@ -92,31 +92,35 @@ var timeLeft = 90;
     }, 1000);
   }
 
-  // function to show question 
-  function showQuestion() {
-    resetState();
-    var currentQuizQuestion = shuffledQuestions[currentQuestion];
-    questionElement.textContent = currentQuizQuestion.question;
-    currentQuizQuestion.choices.forEach(function (choice) {
-      var button = document.createElement("button");
-      button.classList.add("btn");
-      button.textContent = choice;
-      button.addEventListener("click", function () {
-        if (choice === currentQuizQuestion.answer) {
-          score++;
-        } else {
-          timeLeft -= 10;
-        }
-        currentQuestion++;
-        if (currentQuestion === questions.length) {
-          endQuiz();
-        } else {
-          showQuestion();
-        }
-      });
-      answerButtons.appendChild(button);
+ // function to show question 
+function showQuestion() {
+  resetState();
+  var currentQuizQuestion = shuffledQuestions[currentQuestion];
+  questionElement.textContent = currentQuizQuestion.question;
+  currentQuizQuestion.choices.forEach(function (choice) {
+    var button = document.createElement("button");
+    button.classList.add("btn");
+    button.textContent = choice;
+    button.addEventListener("click", function () {
+      if (choice === currentQuizQuestion.answer) {
+        score++;
+        resultElement.textContent = "Correct!";
+        resultElement.style.color = "green";
+      } else {
+        timeLeft -= 10;
+        resultElement.textContent = "Wrong!";
+        resultElement.style.color = "red";
+      }
+      currentQuestion++;
+      if (currentQuestion === questions.length) {
+        endQuiz();
+      } else {
+        showQuestion();
+      }
     });
-  }
+    answerButtons.appendChild(button);
+  });
+}
 
   function resetState() {
     while (answerButtons.firstChild) {
